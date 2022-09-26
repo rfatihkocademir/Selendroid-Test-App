@@ -15,7 +15,6 @@ import java.net.MalformedURLException;
 
 public class AppTest
 {
-
     WebDriver driver = DriverSetter.setUp();
     Base android = new Base(driver);
     public AppTest() throws MalformedURLException {
@@ -52,7 +51,12 @@ public class AppTest
     }
 
     @Test
+    public void AppTitleCheckCase(){
+        android.AssertText("selendroid-test-app",android.getText(AppTitle));
+    }
+    @Test
     public void ENButtonCase(){
+
         android.click(ENButton);
         String Text = android.getText(PopMessageText);
         android.AssertText("This will end the activity",Text);
